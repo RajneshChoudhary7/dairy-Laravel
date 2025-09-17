@@ -611,7 +611,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item rounded p-4">
                         <img class="img-fluid rounded mb-4" src="{{ asset('img/team-1.jpg') }}" alt="">
-                        <h5>Adam Crew</h5>
+                        <h5>Rajnesh Choudhary</h5>
                         <p class="text-primary">Founder</p>
                         <div class="d-flex justify-content-center">
                             <a class="btn btn-square btn-outline-secondary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>

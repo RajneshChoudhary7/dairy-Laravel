@@ -212,6 +212,112 @@
                         @endforeach --}}
                     </div>
                 </div>
+
+                <div class="container-xxl py-5">
+    <div class="container">
+        <p class="section-title bg-white text-start text-primary pe-3">Shop</p>
+        <h1 class="mb-5">Explore Our Dairy Products</h1>
+        <div class="row g-4">
+
+            <!-- Card 1 -->
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="card h-100">
+                    <img src="https://imgs.search.brave.com/xIPkJX_IDfqVQBwfViWI22b_af_P5PyLJ0Td6VnucR8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9mYXJtLWZyZXNo/LW1pbGstcHJvZmVz/c2lvbmFsLWNhcHR1/cmVzLW1pbGstYmVp/bmctY29sbGVjdGVk/LWZyb20tZGFpcnkt/Y293cy1mYXJtLWVt/cGhhc2l6aW5nLWZy/ZXNobmVzcy1xdS1h/aS1nZW5lcmF0ZWQt/aWxsdXN0cmF0aW9u/Xzg2NjY2My0yNTA5/OS5qcGc_c2VtdD1h/aXNfaHlicmlkJnc9/NzQwJnE9ODA" class="card-img-top" alt="Fresh Milk">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Fresh Milk</h5>
+                        <p class="card-text">Pure and fresh cow milk delivered daily.</p>
+                        <a href="#" class="btn btn-primary rounded-pill">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="card h-100">
+                    <img  src="https://imgs.search.brave.com/ZFBfFMJBc0DEXJr3HZb6K00rvFKd_IyO0srGuFoWvzo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTAz/MjY1NzkwL3Bob3Rv/L2ZyZXNoLW1hZGUt/aGVyYi1jdXJkLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz12/SlIxRnpQRFFUSElY/X2N2TlpKVWVWTC1I/SUd0WUFwd0RyVEpY/MTctZ1ZBPQ" class="card-img-top h-full w-full object-cover" alt="Curd">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Curd</h5>
+                        <p class="card-text">Thick and creamy homemade curd.</p>
+                        <a href="#" class="btn btn-primary rounded-pill">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="card h-100">
+                    <img src="https://imgs.search.brave.com/ExgL03TMesAiLBn-1nqxri-8OVxJPgvBMXwDgzaZ1aQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdDUu/ZGVwb3NpdHBob3Rv/cy5jb20vNTQ2Nzk5/NjYvNzE0NzAvaS80/NTAvZGVwb3NpdHBo/b3Rvc183MTQ3MDU5/ODAtc3RvY2stcGhv/dG8tZnJlc2gtYnV0/dGVyLWZhcm0tdGFi/bGUtYnV0dGVyLmpw/Zw" class="card-img-top" alt="Butter">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Butter</h5>
+                        <p class="card-text">Fresh churned butter from pure milk.</p>
+                        <a href="#" class="btn btn-primary rounded-pill">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="card h-100">
+                    <img src="https://imgs.search.brave.com/yHUhM5B4bqEkTwkSV2qrinHBsH0eNwk9eC5p311XsIA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM5/NjM0MzIxNy9waG90/by9mcmVzaC1oYXJk/LWNoZWVzZS1ncmF0/ZWQtb24tYS1sYXJn/ZS1ncmF0ZXItb24t/YS13b29kZW4tY3V0/dGluZy1ib2FyZC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/SVY3eHhYVjRTMTg3/YTR5SnU3NFV5Qk56/Vi13dXRodUY3SjhN/amVyakFKaz0" class="card-img-top" alt="Cheese">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Cheese</h5>
+                        <p class="card-text">Natural cheese made from fresh milk.</p>
+                        <a href="#" class="btn btn-primary rounded-pill">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="card h-100">
+                    <img src="https://imgs.search.brave.com/GWe31vZjVtRvDaul06ASZM3QPDvawEj3QiU8LvMoPSw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE2LzM2LzI1LzYw/LzM2MF9GXzE2MzYy/NTYwNDJfVGY2aktR/QmZoTmpaNkM3RnVt/QVNOMDU3R2pqVHVr/bDguanBn" class="card-img-top" alt="Ghee">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Ghee</h5>
+                        <p class="card-text">Aromatic and pure ghee for daily use.</p>
+                        <a href="#" class="btn btn-primary rounded-pill">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="card h-100">
+                    <img src="https://imgs.search.brave.com/UH6H5eqgXLjOMUWcF-ILyIaX4udG6U-fmi5HXVsKuCc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YXdlc29tZWN1aXNp/bmUuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDEzLzA1L3Nh/bHR5LWxhc3NpLnBu/Zw" class="card-img-top" alt="Lassi">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Lassi</h5>
+                        <p class="card-text">Refreshing traditional lassi made with love.</p>
+                        <a href="#" class="btn btn-primary rounded-pill">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="card h-100">
+                    <img src="https://imgs.search.brave.com/Jd-su3ItxcGhwb58lr03bWBwwAGwL6LDqjQQ0MmArhs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL3RoZXBpb25l/ZXJ3b21hbi93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNy8wMS9o/b3ctdG8tbWFrZS1m/bGF2b3JlZC1taWxr/LTAxLmpwZz9yZXNp/emU9OTgwOio" class="card-img-top" alt="Flavored Milk">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Flavored Milk</h5>
+                        <p class="card-text">Tasty flavored milk options for all ages.</p>
+                        <a href="#" class="btn btn-primary rounded-pill">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="card h-100">
+                    <img src="https://imgs.search.brave.com/OwGPlsyycYfWXWb9HBRdEnWMvIS6W7D16OGTzbQoB_I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM1/MTcwNTU5L3Bob3Rv/L2ljZWNyZWFtLXRo/cmVlLWJhbGxzLWlu/LXdhZmVyLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1HR200/V28zWU5NVTFHYmpX/a0VfV2Q2cEhpV0E4/QmVEazZ3NkphZ0ht/aGJnPQ" class="card-img-top" alt="Ice Cream">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Ice Cream</h5>
+                        <p class="card-text">Creamy ice cream made from fresh dairy.</p>
+                        <a href="#" class="btn btn-primary rounded-pill">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
                 
                 <!-- Main products content -->
                 {{-- <div class="col-lg-9">
