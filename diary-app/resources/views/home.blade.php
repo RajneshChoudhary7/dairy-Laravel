@@ -79,13 +79,17 @@
                 <a href="{{ route('services') }}" class="nav-item nav-link">Services</a>
                 <a href="{{ route('products') }}" class="nav-item nav-link">Products</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="{{ route('gallery') }}" class="dropdown-item">Gallery</a>
-                        <a href="{{ route('features') }}" class="dropdown-item">Features</a>
-                        <a href="{{ route('team') }}" class="dropdown-item">Our Team</a>
-                        <a href="{{ route('testimonials') }}" class="dropdown-item">Testimonial</a>
-                        <a href="{{ route('page404') }}" class="dropdown-item">404 Page</a>
+                        <a href="{{ route('Milk') }}" class="dropdown-item">Doodh (Milk)</a>
+                        <a href="{{ route('Dahi') }}" class="dropdown-item">Dahi (Curd/Yogurt)</a>
+                        <a href="{{ route('Ghee') }}" class="dropdown-item">Ghee</a>
+                        <a href="{{ route('Paneer') }}" class="dropdown-item">Paneer (Cheese)</a>
+                        <a href="{{ route('Butter') }}" class="dropdown-item">Butter</a>
+                         <a href="{{ route('IceCream') }}" class="dropdown-item">Ice Cream</a>
+                          <a href="{{ route('Lassi') }}" class="dropdown-item">Lassi / Chhachh (Buttermilk)</a>
+                           <a href="{{ route('Lassi') }}" class="dropdown-item">Health Products</a>
+                            <a href="{{ route('Butter') }}" class="dropdown-item">Butter</a>
                     </div>
                 </div>
                 <a href="contact.html" class="nav-item nav-link"  data-bs-toggle="dropdown">Contact</a>
