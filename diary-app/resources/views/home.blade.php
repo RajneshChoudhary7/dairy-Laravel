@@ -157,7 +157,7 @@
             <!-- Card 1 -->
             <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="card h-100">
-                    <img src="{{ asset('img/product-milk.jpg') }}" class="card-img-top" alt="Fresh Milk">
+                    <img src="https://imgs.search.brave.com/xIPkJX_IDfqVQBwfViWI22b_af_P5PyLJ0Td6VnucR8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9mYXJtLWZyZXNo/LW1pbGstcHJvZmVz/c2lvbmFsLWNhcHR1/cmVzLW1pbGstYmVp/bmctY29sbGVjdGVk/LWZyb20tZGFpcnkt/Y293cy1mYXJtLWVt/cGhhc2l6aW5nLWZy/ZXNobmVzcy1xdS1h/aS1nZW5lcmF0ZWQt/aWxsdXN0cmF0aW9u/Xzg2NjY2My0yNTA5/OS5qcGc_c2VtdD1h/aXNfaHlicmlkJnc9/NzQwJnE9ODA" class="card-img-top" alt="Fresh Milk">
                     <div class="card-body text-center">
                         <h5 class="card-title">Fresh Milk</h5>
                         <p class="card-text">Pure and fresh cow milk delivered daily.</p>
@@ -169,7 +169,7 @@
             <!-- Card 2 -->
             <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="card h-100">
-                    <img src="{{ asset('img/product-curd.jpg') }}" class="card-img-top" alt="Curd">
+                    <img  src="https://imgs.search.brave.com/ZFBfFMJBc0DEXJr3HZb6K00rvFKd_IyO0srGuFoWvzo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTAz/MjY1NzkwL3Bob3Rv/L2ZyZXNoLW1hZGUt/aGVyYi1jdXJkLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz12/SlIxRnpQRFFUSElY/X2N2TlpKVWVWTC1I/SUd0WUFwd0RyVEpY/MTctZ1ZBPQ" class="card-img-top h-full w-full object-cover" alt="Curd">
                     <div class="card-body text-center">
                         <h5 class="card-title">Curd</h5>
                         <p class="card-text">Thick and creamy homemade curd.</p>
@@ -181,7 +181,7 @@
             <!-- Card 3 -->
             <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="card h-100">
-                    <img src="{{ asset('img/product-butter.jpg') }}" class="card-img-top" alt="Butter">
+                    <img src="https://imgs.search.brave.com/ExgL03TMesAiLBn-1nqxri-8OVxJPgvBMXwDgzaZ1aQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdDUu/ZGVwb3NpdHBob3Rv/cy5jb20vNTQ2Nzk5/NjYvNzE0NzAvaS80/NTAvZGVwb3NpdHBo/b3Rvc183MTQ3MDU5/ODAtc3RvY2stcGhv/dG8tZnJlc2gtYnV0/dGVyLWZhcm0tdGFi/bGUtYnV0dGVyLmpw/Zw" class="card-img-top" alt="Butter">
                     <div class="card-body text-center">
                         <h5 class="card-title">Butter</h5>
                         <p class="card-text">Fresh churned butter from pure milk.</p>
@@ -193,7 +193,7 @@
             <!-- Card 4 -->
             <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="card h-100">
-                    <img src="{{ asset('img/product-cheese.jpg') }}" class="card-img-top" alt="Cheese">
+                    <img src="https://imgs.search.brave.com/yHUhM5B4bqEkTwkSV2qrinHBsH0eNwk9eC5p311XsIA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM5/NjM0MzIxNy9waG90/by9mcmVzaC1oYXJk/LWNoZWVzZS1ncmF0/ZWQtb24tYS1sYXJn/ZS1ncmF0ZXItb24t/YS13b29kZW4tY3V0/dGluZy1ib2FyZC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/SVY3eHhYVjRTMTg3/YTR5SnU3NFV5Qk56/Vi13dXRodUY3SjhN/amVyakFKaz0" class="card-img-top" alt="Cheese">
                     <div class="card-body text-center">
                         <h5 class="card-title">Cheese</h5>
                         <p class="card-text">Natural cheese made from fresh milk.</p>
@@ -205,7 +205,7 @@
             <!-- Card 5 -->
             <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="card h-100">
-                    <img src="{{ asset('img/product-ghee.jpg') }}" class="card-img-top" alt="Ghee">
+                    <img src="https://imgs.search.brave.com/GWe31vZjVtRvDaul06ASZM3QPDvawEj3QiU8LvMoPSw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE2LzM2LzI1LzYw/LzM2MF9GXzE2MzYy/NTYwNDJfVGY2aktR/QmZoTmpaNkM3RnVt/QVNOMDU3R2pqVHVr/bDguanBn" class="card-img-top" alt="Ghee">
                     <div class="card-body text-center">
                         <h5 class="card-title">Ghee</h5>
                         <p class="card-text">Aromatic and pure ghee for daily use.</p>
@@ -217,7 +217,7 @@
             <!-- Card 6 -->
             <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="card h-100">
-                    <img src="{{ asset('img/product-lassi.jpg') }}" class="card-img-top" alt="Lassi">
+                    <img src="https://imgs.search.brave.com/UH6H5eqgXLjOMUWcF-ILyIaX4udG6U-fmi5HXVsKuCc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YXdlc29tZWN1aXNp/bmUuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDEzLzA1L3Nh/bHR5LWxhc3NpLnBu/Zw" class="card-img-top" alt="Lassi">
                     <div class="card-body text-center">
                         <h5 class="card-title">Lassi</h5>
                         <p class="card-text">Refreshing traditional lassi made with love.</p>
@@ -229,7 +229,7 @@
             <!-- Card 7 -->
             <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                 <div class="card h-100">
-                    <img src="{{ asset('img/product-flavored-milk.jpg') }}" class="card-img-top" alt="Flavored Milk">
+                    <img src="https://imgs.search.brave.com/Jd-su3ItxcGhwb58lr03bWBwwAGwL6LDqjQQ0MmArhs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL3RoZXBpb25l/ZXJ3b21hbi93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNy8wMS9o/b3ctdG8tbWFrZS1m/bGF2b3JlZC1taWxr/LTAxLmpwZz9yZXNp/emU9OTgwOio" class="card-img-top" alt="Flavored Milk">
                     <div class="card-body text-center">
                         <h5 class="card-title">Flavored Milk</h5>
                         <p class="card-text">Tasty flavored milk options for all ages.</p>
@@ -241,7 +241,7 @@
             <!-- Card 8 -->
             <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.8s">
                 <div class="card h-100">
-                    <img src="{{ asset('img/product-icecream.jpg') }}" class="card-img-top" alt="Ice Cream">
+                    <img src="https://imgs.search.brave.com/OwGPlsyycYfWXWb9HBRdEnWMvIS6W7D16OGTzbQoB_I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM1/MTcwNTU5L3Bob3Rv/L2ljZWNyZWFtLXRo/cmVlLWJhbGxzLWlu/LXdhZmVyLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1HR200/V28zWU5NVTFHYmpX/a0VfV2Q2cEhpV0E4/QmVEazZ3NkphZ0ht/aGJnPQ" class="card-img-top" alt="Ice Cream">
                     <div class="card-body text-center">
                         <h5 class="card-title">Ice Cream</h5>
                         <p class="card-text">Creamy ice cream made from fresh dairy.</p>
@@ -276,28 +276,28 @@
                     <div class="row g-0">
                         <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
                             <div class="text-center bg-primary py-5 px-4">
-                                <img class="img-fluid mb-4" src="{{ asset('img/direct-export.png') }}" alt="Direct Export">
+                                <img class="img-fluid mb-4" src="https://imgs.search.brave.com/lcDO_vujG19Uqz6XHdUeDf-ew1j_Wm6OWNWfcYgnj6g/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvODgy/ODg2MzQvcGhvdG8v/ZmFybWVycy1vbi1h/LWNvb3BlcmF0aXZl/LWZpbGwtYS1taWxr/LXRhbmtlci1pbi10/aGUtdmlsbGFnZS1v/Zi1tb3JraG9jaG92/c2NoaW5hLXNvbWUt/ODUta21zLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1EVTF4/SnhoWjlqUnkwUlhX/SHVhTTc1bjFReUU1/ZEZuclYxazBwOUlk/enZBPQ" alt="Direct Export">
                                 <h1 class="display-6 text-white" data-toggle="counter-up">100%</h1>
                                 <span class="fs-5 fw-semi-bold text-secondary">Direct Exports</span>
                             </div>
                         </div>
                         <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
                             <div class="text-center bg-secondary py-5 px-4">
-                                <img class="img-fluid mb-4" src="{{ asset('img/barcode-scan.png') }}" alt="Barcode Verification">
+                                <img class="img-fluid mb-4" src="https://imgs.search.brave.com/zuQWgFBgDtaqh2pnuAnKmDSv4N2ZI2gHI-j9o25T8KQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/c21hcnRwaG9uZS1z/Y2FubmluZy1xci1j/b2RlXzIzLTIxNDg2/MjQyNDkuanBnP3Nl/bXQ9YWlzX2luY29t/aW5nJnc9NzQwJnE9/ODA" alt="Barcode Verification">
                                 <h1 class="display-6" data-toggle="counter-up">24/7</h1>
                                 <span class="fs-5 fw-semi-bold text-primary">Barcode Verification</span>
                             </div>
                         </div>
                         <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
                             <div class="text-center bg-secondary py-5 px-4">
-                                <img class="img-fluid mb-4" src="{{ asset('img/organic.png') }}" alt="Organic Products">
+                                <img class="img-fluid mb-4" src="https://imgs.search.brave.com/8l-ivLSpINegwoDCmyquPfkCt0o8h9Na0ctcxeEFokQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9mcmVz/aC1kYWlyeS1wcm9k/dWN0cy1iZWF1dGlm/eWluZy1raXRjaGVu/LWNvdW50ZXJ0b3At/aW5jbHVkaW5nLW1p/bGstY2hlZXNlLWNv/dHRhZ2UtYXJyYW5n/ZWQtaWxsdW1pbmF0/ZWQtbmF0dXJhbC1s/aWdodC0zOTgxMjkw/OTAuanBn" alt="Organic Products">
                                 <h1 class="display-6" data-toggle="counter-up">100+</h1>
                                 <span class="fs-5 fw-semi-bold text-primary">Organic Products</span>
                             </div>
                         </div>
                         <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
                             <div class="text-center bg-primary py-5 px-4">
-                                <img class="img-fluid mb-4" src="{{ asset('img/delivery-tracking.png') }}" alt="Real-time Tracking">
+                                <img class="img-fluid mb-4" src="https://imgs.search.brave.com/qSki2AkvJl6Voe7zK3NzRbBXn_PKMfpsLMZU8zaOvtQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi93aGl0/ZS1mYXN0LWRlbGl2/ZXJ5LXRpbWUtdmFu/LWRyaXZpbmctZm9y/ZXN0LXJvYWQtY2xv/c2UtMTAwODMzODYy/LmpwZw" alt="Real-time Tracking">
                                 <h1 class="display-6 text-white" data-toggle="counter-up">99%</h1>
                                 <span class="fs-5 fw-semi-bold text-secondary">On-Time Delivery</span>
                             </div>
@@ -320,7 +320,7 @@
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
                 <div class="row g-4 align-items-center">
                     <div class="col-sm-4">
-                        <img class="img-fluid rounded" src="{{ asset('img/service-delivery.jpg') }}" alt="Delivery Service">
+                        <img class="img-fluid rounded" src="https://imgs.search.brave.com/R6zAXUvua2cxQZgsDUQx7NToc3QpsOhGzWsimMgyjEg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAyLzM2LzQ2LzAz/LzM2MF9GXzIzNjQ2/MDM4MF9JQ0RlTlA5/Nzd1UWN2TkFQTEIz/cVN2UE1tRVNFZjFH/by5qcGc" alt="Delivery Service">
                     </div>
                     <div class="col-sm-8">
                         <h2 class="text-dark mb-3">Efficient Delivery Service</h2>
@@ -334,7 +334,7 @@
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                 <div class="row g-4 align-items-center">
                     <div class="col-sm-4">
-                        <img class="img-fluid rounded" src="{{ asset('img/service-support.jpg') }}" alt="Customer Support">
+                        <img class="img-fluid rounded" src="https://imgs.search.brave.com/DrB-ec2Ps7V8o9VZa7O5m9t0JtT0ZCwAkIVxNqfVDT4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/YWxsLWRheS0yNC1o/b3Vycy1zZXJ2aWNl/LWxhYmVsXzEwMTct/MTk0OTEuanBnP3Nl/bXQ9YWlzX2luY29t/aW5nJnc9NzQwJnE9/ODA" alt="Customer Support">
                     </div>
                     <div class="col-sm-8">
                         <h2 class="text-dark mb-3">24/7 Customer Support</h2>
@@ -348,7 +348,7 @@
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.7s">
                 <div class="row g-4 align-items-center">
                     <div class="col-sm-4">
-                        <img class="img-fluid rounded" src="{{ asset('img/service-quality.jpg') }}" alt="Quality Assurance">
+                        <img class="img-fluid rounded" src="https://imgs.search.brave.com/tAizQSPGqbOWVGmm4xgu0cTu0eaEnMPg-OV_DQsI0Dg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS12/ZWN0b3IvM2QtZnJl/c2gtbWlsay1hZC10/ZW1wbGF0ZS0yNjBu/dy0yMTIwMzg4Mjg3/LmpwZw" alt="Quality Assurance">
                     </div>
                     <div class="col-sm-8">
                         <h2 class="text-dark mb-3">Quality Assurance</h2>
@@ -362,7 +362,7 @@
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.9s">
                 <div class="row g-4 align-items-center">
                     <div class="col-sm-4">
-                        <img class="img-fluid rounded" src="{{ asset('img/service-tracking.jpg') }}" alt="Order Tracking">
+                        <img class="img-fluid rounded" src="https://imgs.search.brave.com/dR29evk_SWtS75FzsKNSjrvuIC0r7Nc45fuvzkwaYXY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjE1/ODIxMjUzNi92ZWN0/b3IvdmVoaWNsZS10/ZWxlbWF0aWNzLWFu/ZC1zbWFydC1jb21t/dW5pY2F0aW9uLXN5/c3RlbS1vdXRsaW5l/LWhhbmRzLWNvbmNl/cHQuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPThwaF9vaDFs/WXJEcFJUc0NzXzNx/dWxnZkhyVXNqXzlt/UXBJZGJBTDlZU3M9" alt="Order Tracking">
                     </div>
                     <div class="col-sm-8">
                         <h2 class="text-dark mb-3">Order Tracking</h2>
@@ -376,7 +376,7 @@
             <div class="col-lg-6 wow fadeIn" data-wow-delay="1.1s">
                 <div class="row g-4 align-items-center">
                     <div class="col-sm-4">
-                        <img class="img-fluid rounded" src="{{ asset('img/service-smallshops.jpg') }}" alt="Support for Small Shops">
+                        <img class="img-fluid rounded" src="https://imgs.search.brave.com/PPFU1ux5pAhEW9ZXYoFBdd8wuioYwecYBfcUnlRYBhk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS1w/aG90by9oYXBweS1z/bWlsaW5nLWluZGlh/bi13b21hbi1idXN5/LTI2MG53LTIxMjkz/OTU2NjEuanBn alt="Support for Small Shops">
                     </div>
                     <div class="col-sm-8">
                         <h2 class="text-dark mb-3">Supporting Small Businesses</h2>
@@ -390,7 +390,7 @@
             <div class="col-lg-6 wow fadeIn" data-wow-delay="1.3s">
                 <div class="row g-4 align-items-center">
                     <div class="col-sm-4">
-                        <img class="img-fluid rounded" src="{{ asset('img/service-community.jpg') }}" alt="Community Empowerment">
+                        <img class="img-fluid rounded" src="https://imgs.search.brave.com/STtzwQd3pIXH4WeRLWZQr0L_NFYl7nClReLcyWr-Svw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWct/Y2RuLnRoZXB1Ymxp/dmUuY29tL2ZpdC1p/bi8xMjgweDk2MC9m/aWx0ZXJzOmZvcm1h/dCh3ZWJwKS8zMC1z/dGFkZXMvbWVkaWEv/bWVkaWFfZmlsZXMv/RTBtMjlCZ0R4eDVp/UjBDVlNLOEoucG5n" alt="Community Empowerment">
                     </div>
                     <div class="col-sm-8">
                         <h2 class="text-dark mb-3">Community Empowerment</h2>
@@ -419,7 +419,7 @@
             <!-- Network Node 1: Customers -->
             <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
                 <div class="card shadow-sm border-0 h-100">
-                    <img src="{{ asset('img/customer-network.jpg') }}" class="card-img-top rounded" alt="Customers">
+                    <img src="https://imgs.search.brave.com/2IxLAQoDInA9gWjstecacrqpA9ptto8wC_iooAAmhRw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTMw/MDM1NzkzOS9waG90/by9ibGFjay1tYWxl/LXNob3BwaW5nLWdy/b2Nlcmllcy1pbi1z/dXBlcm1hcmtldC10/YWtpbmctcHJvZHVj/dC1mcm9tLXNoZWxm/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1QcENsSXFndzU2/eUk2S2xxWE83VUVq/VFFpZXZZMEZtNEsx/REI3V2tUUXQ4PQ" class="card-img-top rounded" alt="Customers">
                     <div class="card-body text-center">
                         <h4 class="card-title text-dark">Customers</h4>
                         <p class="card-text text-muted">Access fresh dairy products directly from trusted farms. Place orders, track deliveries, and provide feedback easily.</p>
@@ -431,7 +431,7 @@
             <!-- Network Node 2: Farmers -->
             <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
                 <div class="card shadow-sm border-0 h-100">
-                    <img src="{{ asset('img/farmer-network.jpg') }}" class="card-img-top rounded" alt="Farmers">
+                    <img src="{https://imgs.search.brave.com/oBlhi-J7Oh4c4jCCs4RDBgXJcwo1G1wkDioLxQiPbBo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAzLzQwLzcwLzA4/LzM2MF9GXzM0MDcw/MDg0Nl9uRjhRbU90/RWozN3BzSVduNHI1/eVYzRktMNzFsVHdK/Ny5qcGc" class="card-img-top rounded" alt="Farmers">
                     <div class="card-body text-center">
                         <h4 class="card-title text-dark">Farmers</h4>
                         <p class="card-text text-muted">Join the network to manage your milk supply, share resources, and grow your business with support from the community.</p>
@@ -443,7 +443,7 @@
             <!-- Network Node 3: Producers -->
             <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
                 <div class="card shadow-sm border-0 h-100">
-                    <img src="{{ asset('img/producer-network.jpg') }}" class="card-img-top rounded" alt="Milk Producers">
+                    <img src="https://imgs.search.brave.com/Bs7n2uCl0_5f0-ipqWHY3uHwqUZVNA5pcYvYk4npv6E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzQ2LzY4LzE3/LzM2MF9GXzQ0NjY4/MTc2MF8xS05WTldZ/MWhUUXBsZTg0UjB1/ZnpXRk9SR3Jub1Nu/ci5qcGc" class="card-img-top rounded" alt="Milk Producers">
                     <div class="card-body text-center">
                         <h4 class="card-title text-dark">Milk Producers</h4>
                         <p class="card-text text-muted">Collaborate with farms and customers, ensure quality control, and innovate with efficient processing and distribution methods.</p>
@@ -464,12 +464,12 @@
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="row g-0">
                     <div class="col-12">
-                        <a class="d-block" href="{{ asset('img/gallery-5.jpg') }}" data-lightbox="gallery">
-                            <img class="img-fluid" src="{{ asset('img/gallery-5.jpg') }}" alt="">
+                        <a class="d-block" href="https://t4.ftcdn.net/jpg/02/58/31/27/240_F_258312797_QUuR0UrAbS3vqr0e2AQ65jY44O8OVTHl.jpg" data-lightbox="gallery">
+                            <img class="img-fluid" src="https://t3.ftcdn.net/jpg/12/87/36/16/240_F_1287361609_WXLuY9avht0dYLZ7JsNX8wrY7ZZtFDsU.jpg" alt="">
                         </a>
                     </div>
                     <div class="col-12">
-                        <a class="d-block" href="{{ asset('img/gallery-1.jpg') }}" data-lightbox="gallery">
+                        <a class="d-block" href="https://t3.ftcdn.net/jpg/03/37/35/24/240_F_337352433_QIaRsp1VdLstkbaYBFm0wRywLOaFrW58.jpg" data-lightbox="gallery">
                             <img class="img-fluid" src="{{ asset('img/gallery-1.jpg') }}" alt="">
                         </a>
                     </div>
@@ -478,13 +478,13 @@
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="row g-0">
                     <div class="col-12">
-                        <a class="d-block" href="{{ asset('img/gallery-2.jpg') }}" data-lightbox="gallery">
-                            <img class="img-fluid" src="{{ asset('img/gallery-2.jpg') }}" alt="">
+                        <a class="d-block" href="https://t3.ftcdn.net/jpg/13/59/75/76/240_F_1359757666_VWuaXjuTnlsd4yeEzIQOgBqqEUxD0628.jpg" data-lightbox="gallery">
+                            <img class="img-fluid" src="https://t4.ftcdn.net/jpg/14/30/10/11/240_F_1430101114_G5NqRORG3J57RSiUj8HxvglKQCBU16rH.jpg" alt="">
                         </a>
                     </div>
                     <div class="col-12">
-                        <a class="d-block" href="{{ asset('img/gallery-6.jpg') }}" data-lightbox="gallery">
-                            <img class="img-fluid" src="{{ asset('img/gallery-6.jpg') }}" alt="">
+                        <a class="d-block" href="https://t4.ftcdn.net/jpg/13/49/52/21/240_F_1349522191_gxRwJGgOVopFbRnIwwN0tKWoKidysl5H.jpg" data-lightbox="gallery">
+                            <img class="img-fluid" src="https://t3.ftcdn.net/jpg/14/30/10/14/240_F_1430101474_DvfUfWFSA8T4x9cGhTeKIOV17NX1otOI.jpg" alt="">
                         </a>
                     </div>
                 </div>
@@ -492,12 +492,12 @@
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="row g-0">
                     <div class="col-12">
-                        <a class="d-block" href="{{ asset('img/gallery-7.jpg') }}" data-lightbox="gallery">
-                            <img class="img-fluid" src="{{ asset('img/gallery-7.jpg') }}" alt="">
+                        <a class="d-block" href="https://t4.ftcdn.net/jpg/15/40/31/31/240_F_1540313174_Q98P7vZMkfam81QKJJid7AY2ldG9pQgO.jpg" data-lightbox="gallery">
+                            <img class="img-fluid" src="https://t3.ftcdn.net/jpg/15/72/69/84/240_F_1572698462_J8eBDuJSzCM9uNgzXrktcuk3bJbzypgu.jpg" alt="">
                         </a>
                     </div>
                     <div class="col-12">
-                        <a class="d-block" href="{{ asset('img/gallery-3.jpg') }}" data-lightbox="gallery">
+                        <a class="d-block" href="https://t3.ftcdn.net/jpg/16/10/77/82/240_F_1610778213_vz71F0Bv2DVwvk8vbxd1vZ4HzfPGbET5.jpg" data-lightbox="gallery">
                             <img class="img-fluid" src="{{ asset('img/gallery-3.jpg') }}" alt="">
                         </a>
                     </div>
@@ -506,13 +506,13 @@
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                 <div class="row g-0">
                     <div class="col-12">
-                        <a class="d-block" href="{{ asset('img/gallery-4.jpg') }}" data-lightbox="gallery">
-                            <img class="img-fluid" src="{{ asset('img/gallery-4.jpg') }}" alt="">
+                        <a class="d-block" href="https://t3.ftcdn.net/jpg/02/94/37/84/240_F_294378459_JJLI1ts6mUTEvXLKhOoUpoQqbchSVbZe.jpg" data-lightbox="gallery">
+                            <img class="img-fluid" src="https://t3.ftcdn.net/jpg/15/01/53/64/240_F_1501536426_NEPSG598dZyHglFeO2p3T6DDYGIwqKUV.jpg" alt="">
                         </a>
                     </div>
                     <div class="col-12">
-                        <a class="d-block" href="{{ asset('img/gallery-8.jpg') }}" data-lightbox="gallery">
-                            <img class="img-fluid" src="{{ asset('img/gallery-8.jpg') }}" alt="">
+                        <a class="d-block" href="https://t4.ftcdn.net/jpg/03/09/48/33/240_F_309483308_rQC0Bmk2V1pZrE6UoP1mBYFMqRyrXkfF.jpg" data-lightbox="gallery">
+                            <img class="img-fluid" src="https://t3.ftcdn.net/jpg/09/23/17/48/240_F_923174883_009uOcvsL2MKrsOvgkNgdz7Y7l4nwji9.jpg" alt="">
                         </a>
                     </div>
                 </div>
@@ -549,7 +549,7 @@
             <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp " data-wow-delay="0.3s">
                 <div class="product-item">
                     <div class="position-relative">
-                        <img class="img-fluid" src="{{ asset('img/product-2.jpg') }}" alt="">
+                        <img class="img-fluid" src="https://imgs.search.brave.com/OYlE-BQIMZiLR6JC1PmYPVFFUFPYVQdSYv2txpzmryU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c2FuamFuYWZlYXN0/cy5jby51ay93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMC8wNi9J/TUdfNjE1Mi02ODN4/MTAyNC5qcGc" alt="">
                         <div class="product-overlay">
                             <a class="btn btn-square btn-secondary rounded-circle m-1" href=""><i class="bi bi-link"></i></a>
                             <a class="btn btn-square btn-secondary rounded-circle m-1" href=""><i class="bi bi-cart"></i></a>
