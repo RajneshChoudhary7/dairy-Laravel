@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -22,28 +23,37 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6',
             'role' => 'required|in:admin,staff,customer,supplier',
+            'face_image' => 'required|string', // Make face image required for signup
         ]);
 
-        $imageName = null;
-        if ($request->face_image) {
-            $image = $request->face_image;
-            $image = str_replace('data:image/png;base64,', '', $image);
-            $image = str_replace(' ', '+', $image);
-            $imageName = 'faces/' . time() . '.png';
-            Storage::disk('public')->put($imageName, base64_decode($image));
+        try {
+            // Process face image
+            $imageData = $request->face_image;
+            $imageData = str_replace('data:image/png;base64,', '', $imageData);
+            $imageData = str_replace(' ', '+', $imageData);
+            $imageName = 'faces/' . uniqid() . '_' . time() . '.png';
+            
+            // Save the image
+            Storage::disk('public')->put($imageName, base64_decode($imageData));
+
+            // Create user
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => $request->role,
+                'face_image' => $imageName,
+            ]);
+
+            Auth::login($user);
+            
+            return redirect()->route($this->getDashboardRoute($user->role))
+                            ->with('success', 'Signup successful! Welcome.');
+
+        } catch (\Exception $e) {
+            Log::error('Signup error: ' . $e->getMessage());
+            return back()->withErrors(['error' => 'Signup failed. Please try again.']);
         }
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => $request->role,
-            'face_image' => $imageName,
-        ]);
-
-        Auth::login($user); // Signup ke baad automatically login
-        return redirect()->route($this->getDashboardRoute($user->role))
-                         ->with('success', 'Signup successful! Welcome.');
     }
 
     // Show Login Form
@@ -52,18 +62,123 @@ class AuthController extends Controller
     }
 
     // Handle Login Submit (Email + Password)
-    public function loginSubmit(Request $request) {
-        $credentials = $request->only('email', 'password');
+   public function loginSubmit(Request $request)
+{
+    $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            $user = Auth::user();
-            return redirect()->route($this->getDashboardRoute($user->role));
-        }
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+        $user = Auth::user();
+        return redirect()->route($this->getDashboardRoute($user->role))
+                        ->with('success', 'Login successful!');
+    }
 
-        return back()->withErrors([
-            'email' => 'Invalid credentials.',
+    return back()->withErrors([
+        'email' => 'Invalid credentials.',
+    ]);
+    // (Removed duplicate login logic)
+        
+    }
+
+    // Face Authentication Login - IMPROVED VERSION
+    public function faceLogin(Request $request)
+    {
+        $request->validate([
+            'face_image' => 'required|string',
         ]);
+
+        try {
+            $imageData = $request->face_image;
+            $imageData = str_replace('data:image/png;base64,', '', $imageData);
+            $imageData = str_replace(' ', '+', $imageData);
+            
+            // Create temporary file for comparison
+            $tempImagePath = tempnam(sys_get_temp_dir(), 'face_login');
+            file_put_contents($tempImagePath, base64_decode($imageData));
+
+            $matchedUser = null;
+            $users = User::whereNotNull('face_image')->get();
+
+            foreach ($users as $user) {
+                $similarity = $this->compareFaces($tempImagePath, $user->face_image);
+                
+                // Adjust threshold as needed (0.6 = 60% similarity)
+                if ($similarity > 0.6) {
+                    $matchedUser = $user;
+                    break;
+                }
+            }
+
+            // Clean up temp file
+            unlink($tempImagePath);
+
+            if ($matchedUser) {
+                Auth::login($matchedUser);
+                $redirectRoute = $this->getDashboardRoute($matchedUser->role);
+                
+                return response()->json([
+                    'success' => true, 
+                    'redirect' => route($redirectRoute),
+                    'message' => 'Face recognition successful!'
+                ]);
+            }
+
+            return response()->json([
+                'success' => false, 
+                'message' => 'Face not recognized. Please try again or use email login.'
+            ], 401);
+
+        } catch (\Exception $e) {
+            Log::error('Face login error: ' . $e->getMessage());
+            return response()->json([
+                'success' => false, 
+                'message' => 'Authentication failed. Please try again.'
+            ], 500);
+        }
+    }
+
+    // Enhanced face comparison function
+    private function compareFaces($capturedImagePath, $storedImagePath)
+    {
+        // Method 1: Simple image comparison (for basic testing)
+        $similarity = $this->compareImagesSimple($capturedImagePath, $storedImagePath);
+        
+        // Method 2: For production, integrate with a proper face recognition service
+        // return $this->compareWithFaceRecognitionService($capturedImagePath, $storedImagePath);
+        
+        return $similarity;
+    }
+
+    // Basic image comparison (placeholder - replace with real face recognition)
+    private function compareImagesSimple($image1Path, $image2Path)
+    {
+        // This is a VERY basic comparison - not suitable for production!
+        // In production, you should use:
+        // 1. face-api.js on backend (Node.js) or 
+        // 2. Python OpenCV with Laravel bridge
+        // 3. Cloud APIs (AWS Rekognition, Azure Face API)
+        
+        try {
+            if (!file_exists($image1Path) || !Storage::disk('public')->exists($image2Path)) {
+                return 0;
+            }
+
+            // Get stored image full path
+            $storedFullPath = Storage::disk('public')->path($image2Path);
+            
+            // Basic file comparison (this is just a demo!)
+            $size1 = filesize($image1Path);
+            $size2 = filesize($storedFullPath);
+            
+            // Simple size-based "similarity" (not real face recognition)
+            $sizeSimilarity = 1 - abs($size1 - $size2) / max($size1, $size2);
+            
+            return max(0, min(1, $sizeSimilarity)); // Return between 0-1
+            
+        } catch (\Exception $e) {
+            Log::error('Image comparison error: ' . $e->getMessage());
+            return 0;
+        }
     }
 
     // Logout
@@ -71,45 +186,22 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login');
-    }
-
-    // Face Authentication Login
-    public function faceLogin(Request $request)
-{
-    $imageData = $request->input('face_image');
-    if(!$imageData) return response()->json(['success'=>false]);
-
-    // Compare with stored face image (for demo, first user le rahe)
-    $user = User::first(); 
-
-    if($user){
-        Auth::login($user);
-        $redirect = $user->role == 'admin' ? route('admin.dashboard') : route('user.dashboard');
-        return response()->json(['success'=>true, 'redirect'=>$redirect]);
-    }
-
-    return response()->json(['success'=>false]);
-}
-
-    // Dummy face match function (Replace with real face recognition logic)
-    private function matchFace($capturedImage, $storedImagePath) {
-        // TODO: Implement actual face recognition here (OpenCV / face-api.js)
-        // For now, simple placeholder returning false
-        return false;
+        return redirect()->route('login')->with('success', 'Logged out successfully.');
     }
 
     // Helper: Return dashboard route based on user role
     private function getDashboardRoute($role) {
-        switch ($role) {
-            case 'admin':
-                return 'admin.dashboard';
-            case 'staff':
-                return 'staff.dashboard';
-            case 'supplier':
-                return 'supplier.dashboard';
-            default:
-                return 'user.dashboard'; // customer
-        }
+        $routes = [
+            'admin' => 'admin.dashboard',
+            'staff' => 'staff.dashboard',
+            'supplier' => 'supplier.dashboard',
+            'customer' => 'user.dashboard',
+        ];
+        
+        return $routes[$role] ?? 'user.dashboard';
     }
+
+
+    // In your AuthController methods, update the redirects:
+
 }

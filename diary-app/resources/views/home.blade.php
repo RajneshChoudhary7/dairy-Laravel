@@ -65,42 +65,60 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
-        <a href="index.html" class="navbar-brand d-flex align-items-center">
-            <h1 class="m-0">Dairy Saathi</h1>
-        </a>
-        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
-                <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
-                <a href="{{ route('services') }}" class="nav-item nav-link">Services</a>
-                <a href="{{ route('products.index') }}" class="nav-item nav-link">Products</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="{{ route('Milk') }}" class="dropdown-item">Doodh (Milk)</a>
-                        <a href="{{ route('Dahi') }}" class="dropdown-item">Dahi (Curd/Yogurt)</a>
-                        <a href="{{ route('Ghee') }}" class="dropdown-item">Ghee</a>
-                        <a href="{{ route('Paneer') }}" class="dropdown-item">Paneer (Cheese)</a>
-                        <a href="{{ route('Butter') }}" class="dropdown-item">Butter</a>
-                         <a href="{{ route('IceCream') }}" class="dropdown-item">Ice Cream</a>
-                          <a href="{{ route('Lassi') }}" class="dropdown-item">Lassi / Chhachh (Buttermilk)</a>
-                           <a href="{{ route('Lassi') }}" class="dropdown-item">Health Products</a>
-                            <a href="{{ route('Butter') }}" class="dropdown-item">Butter</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link"  data-bs-toggle="dropdown">Contact</a>
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
+    <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center">
+        <h1 class="m-0">Dairy Saathi</h1>
+    </a>
+    <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
+            <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
+            <a href="{{ route('services') }}" class="nav-item nav-link">Services</a>
+            <a href="{{ route('products.index') }}" class="nav-item nav-link">Products</a>
 
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
+                <div class="dropdown-menu bg-light m-0">
+                    <a href="{{ route('Milk') }}" class="dropdown-item">Doodh (Milk)</a>
+                    <a href="{{ route('Dahi') }}" class="dropdown-item">Dahi (Curd/Yogurt)</a>
+                    <a href="{{ route('Ghee') }}" class="dropdown-item">Ghee</a>
+                    <a href="{{ route('Paneer') }}" class="dropdown-item">Paneer (Cheese)</a>
+                    <a href="{{ route('Butter') }}" class="dropdown-item">Butter</a>
+                    <a href="{{ route('IceCream') }}" class="dropdown-item">Ice Cream</a>
+                    <a href="{{ route('Lassi') }}" class="dropdown-item">Lassi / Chhachh (Buttermilk)</a>
+                    <a href="{{ route('HealthProducts') }}" class="dropdown-item">Health Products</a>
+                </div>
             </div>
-            <div class="border-start ps-4 d-none d-lg-block">
-                <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
+
+            <!-- Contact Dropdown -->
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Contact</a>
+                <div class="dropdown-menu bg-light m-0">
+                    <a href="{{ route('signup') }}" class="dropdown-item">User SignUp</a>
+                    <a href="{{ route('login') }}" class="dropdown-item">User Login</a>
+                    <a href="{{ route('signup') }}" class="dropdown-item">Admin SignUp</a>
+                    <a href="{{ route('login') }}" class="dropdown-item">Admin Login</a>
+                </div>
             </div>
         </div>
-    </nav>
-    <!-- Navbar End -->
+
+        <div class="border-start ps-4 d-none d-lg-block">
+            <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Navbar End -->
+
+<form action="{{ route('logout') }}" method="POST" style="display: inline;">
+    @csrf
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>
+
 
 
     <!-- Carousel Start -->

@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Kernel;
+use App\Http\Middleware\CheckRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,34 +15,33 @@ use App\Http\Controllers\DashboardController;
 
 // --------------------- Public Pages ---------------------
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    if(\Illuminate\Support\Facades\Auth::check()) {
+        return redirect('/home'); // already logged-in users ko dashboard pe bhej do
+    }
+    return view('welcome');
+})->name('welcome');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+// Dashboard route
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
-
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::view('/home', 'about')->name('home');
+Route::view('/about', 'about')->name('about');
+Route::view('/services', 'services')->name('services');
+Route::view('/contact', 'contact')->name('contact');
+Route::view('/welcome', 'welcome')->name('welcome');
 
 // --------------------- Product Pages ---------------------
-// ProductController (RESTful)
 Route::prefix('products')->group(function () {
-    Route::get('/', [ProductController::class, 'index'])->name('products.index'); // List all products
-    Route::get('/create', [ProductController::class, 'create'])->name('products.create'); // Add form
-    Route::post('/', [ProductController::class, 'store'])->name('products.store'); // Store new product
-    Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('products.edit'); // Edit product
-    Route::post('/{id}/update', [ProductController::class, 'update'])->name('products.update'); // Update product
-    Route::delete('/{id}', [ProductController::class, 'destroy'])->name('products.destroy'); // Delete product
-    Route::get('/grid', [ProductController::class, 'grid'])->name('products.grid'); // Grid view
+    Route::get('/', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::post('/{id}/update', [ProductController::class, 'update'])->name('products.update');
+    Route::delete('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::get('/grid', [ProductController::class, 'grid'])->name('products.grid');
 });
 
-// Specific product categories (static views)
+// Specific product categories
 Route::view('/milk', 'Milk')->name('Milk');
 Route::view('/dahi', 'Dahi')->name('Dahi');
 Route::view('/paneer', 'Paneer')->name('Paneer');
@@ -52,38 +50,43 @@ Route::view('/ghee', 'Ghee')->name('Ghee');
 Route::view('/icecream', 'IceCream')->name('IceCream');
 Route::view('/lassi', 'Lassi')->name('Lassi');
 
-// --------------------- Authentication ---------------------
-// Auth
-Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
-Route::post('/signup', [AuthController::class, 'signup'])->name('signup.submit');
-
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'loginSubmit'])->name('login.submit');
+Route::view('/health-products', 'health-products')->name('HealthProducts');
 
 
-// Face login (AJAX call)
-Route::post('/face-login', [AuthController::class, 'faceLogin'])->name('face.login');
 
-// Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+// --------------------- Authentication Routes ---------------------
+Route::middleware('guest')->group(function () {
+    Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
+    Route::post('/signup', [AuthController::class, 'signupSubmit'])->name('signup.submit');
+    
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginSubmit'])->name('login.submit');
+    Route::post('/face-login', [AuthController::class, 'faceLogin'])->name('face.login');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// --------------------- Admin & User Dashboard ---------------------
-Route::middleware(['auth', 'checkRole:admin'])->group(function() {
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::middleware(['auth', 'checkRole:staff,customer,supplier'])->group(function() {
-    Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+// --------------------- Protected Routes ---------------------
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+    // Main dashboard that redirects based on role
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+    // Role-specific dashboards
+    Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])
+    ->middleware('checkRole:admin')
+    ->name('admin.dashboard');
+    
+    Route::get('/staff/dashboard', [DashboardController::class, 'staffDashboard'])
+        ->middleware('checkRole:staff')
+        ->name('staff.dashboard');
+    
+    Route::get('/supplier/dashboard', [DashboardController::class, 'supplierDashboard'])
+        ->middleware('checkRole:supplier')
+        ->name('supplier.dashboard');
+    
+    Route::get('/user/dashboard', [DashboardController::class, 'userDashboard'])
+        ->middleware('checkRole:customer')
+        ->name('user.dashboard');
 });
-
-
-Route::get('/health-products', function () {
-    return view('health-products'); // resources/views/health-products.blade.php
-})->name('HealthProducts');
-
-
-Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])->name('admin.dashboard');
-Route::get('/user/dashboard', [DashboardController::class, 'userDashboard'])->name('user.dashboard');
-Route::get('/staff/dashboard', [DashboardController::class, 'staffDashboard'])->name('staff.dashboard');
-Route::get('/supplier/dashboard', [DashboardController::class, 'supplierDashboard'])->name('supplier.dashboard');
-
