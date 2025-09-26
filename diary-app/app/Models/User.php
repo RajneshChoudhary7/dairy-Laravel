@@ -15,14 +15,21 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    use Notifiable;
+
+    protected $table = 'users';   // Table ka naam
+    protected $primaryKey = 'user_id'; // Primary key column ka naam
+    public $incrementing = true;  // Auto increment enable
+    protected $keyType = 'int';   // Primary key ka type
+
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
-        'role',        // Added role
-        'face_image',  // Added face_image
+        'role',
+        'face_image',
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -42,6 +49,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    
 
     public $timestamps = false;
 }
