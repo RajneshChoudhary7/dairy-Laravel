@@ -40,3 +40,8 @@ externalPort = 80
 [[ports]]
 localPort = 35321
 externalPort = 3001
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["bash", "-c", "cd diary-app && php artisan serve --host=0.0.0.0 --port=5000"]
+build = ["bash", "-c", "cd diary-app && composer install --optimize-autoloader --no-dev && npm run build"]
