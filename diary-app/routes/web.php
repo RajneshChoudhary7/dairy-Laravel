@@ -15,24 +15,23 @@ use App\Http\Middleware\CheckRole;
 
 // --------------------- Public Pages ---------------------
 Route::get('/', function () {
-    if(\Illuminate\Support\Facades\Auth::check()) {
-        return redirect('/home'); // already logged-in users ko dashboard pe bhej do
-    }
     return view('welcome');
 })->name('welcome');
 
 // Dashboard route
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::view('/home', 'about')->name('home');
+Route::view('/home', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
 Route::view('/services', 'services')->name('services');
 Route::view('/contact', 'contact')->name('contact');
 Route::view('/welcome', 'welcome')->name('welcome');
+// Removed duplicate Route::view for 'products' to avoid conflict with resourceful routes
 
 // --------------------- Product Pages ---------------------
 Route::prefix('products')->group(function () {
-    Route::get('/', [ProductController::class, 'index'])->name('products.index');
+Route::get('/', [ProductController::class, 'home'])->name('products.home');
+    Route::get('/index', [ProductController::class, 'index'])->name('products.index');
     Route::get('/create', [ProductController::class, 'create'])->name('products.create');
     Route::post('/', [ProductController::class, 'store'])->name('products.store');
     Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');

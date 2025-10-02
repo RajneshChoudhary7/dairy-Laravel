@@ -13,13 +13,12 @@
                 <div class="text-center mb-3">
                     <video id="loginVideo" width="320" height="240" autoplay muted playsinline style="border:1px solid #ccc;"></video>
                     <canvas id="loginCanvas" width="320" height="240" style="display:none;"></canvas>
-
                     <button type="button" class="btn btn-primary mt-2" id="faceLoginBtn">Login with Face</button>
                 </div>
 
                 <hr class="my-4">
 
-                <!-- Email/Password Fallback -->
+                <!-- Email/Password fallback -->
                 <form action="{{ route('login.submit') }}" method="POST">
                     @csrf
                     <div class="mb-3">
@@ -37,107 +36,79 @@
     </div>
 </div>
 
-<!-- In your Blade template head -->
-<script src="{{ asset('js/face-api.js') }}"></script>
-
-<video id="video" width="400" height="300" autoplay muted></video>
-<canvas id="canvas" style="display:none;"></canvas>
-<button id="captureButton">Capture Face for Signup</button>
+<!-- Load Face API -->
+<script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
 
 <script>
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('canvas');
-    const captureButton = document.getElementById('captureButton');
-    let stream = null;
+document.addEventListener("DOMContentLoaded", function() {
+    const video = document.getElementById('loginVideo');
+    const canvas = document.getElementById('loginCanvas');
+    const ctx = canvas.getContext('2d');
 
-    // Load face-api.js models (ensure you have copied them to /public/models/)
+    // Load face-api.js models
     Promise.all([
         faceapi.nets.tinyFaceDetector.loadFromUri("{{ asset('models') }}"),
         faceapi.nets.faceLandmark68Net.loadFromUri("{{ asset('models') }}"),
         faceapi.nets.faceRecognitionNet.loadFromUri("{{ asset('models') }}")
     ]).then(startVideo);
 
+    // Start video stream
     function startVideo() {
-        navigator.mediaDevices.getUserMedia({ video: {} })
-            .then(function(s) {
-                stream = s;
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
                 video.srcObject = stream;
             })
-            .catch(function(err) {
-                console.error("Camera error: ", err);
-                alert("Could not access the camera. Please use email/password login.");
+            .catch(err => {
+                console.error("Camera error:", err);
+                alert("Camera not accessible. Use email/password login.");
             });
     }
 
-    // Function to capture image and detect face
+    // Capture face snapshot
     async function captureFace() {
-        if (!stream) {
-            alert('Camera not available.');
-            return null;
-        }
-
         const displaySize = { width: video.width, height: video.height };
         faceapi.matchDimensions(canvas, displaySize);
 
-        // Detect the single most prominent face
+        // Detect face
         const detection = await faceapi
             .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
             .withFaceLandmarks()
-            .withFaceDescriptor(); // This gets the embedding
+            .withFaceDescriptor();
 
         if (!detection) {
             alert('No face detected. Please try again.');
             return null;
         }
 
-        // Draw the detection on the canvas and get the image data
-        const resizedDetection = faceapi.resizeResults(detection, displaySize);
-        faceapi.draw.drawDetections(canvas, resizedDetection);
+        // Draw snapshot on canvas
+        ctx.drawImage(video, 0, 0, video.width, video.height);
 
-        // Convert canvas to Base64 image string
-        const base64Image = canvas.toDataURL('image/png');
-        return base64Image;
+        return canvas.toDataURL('image/png'); // return base64 image
     }
 
-    // On signup form submission
-    document.getElementById('signupForm').addEventListener('submit', async function(e) {
-        e.preventDefault(); // Prevent immediate submission
-
+    // Face login button
+    document.getElementById('faceLoginBtn').addEventListener('click', async () => {
         const faceImage = await captureFace();
-        if (faceImage) {
-            // Add the base64 image string to a hidden input in the form
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'face_image';
-            hiddenInput.value = faceImage;
-            this.appendChild(hiddenInput);
+        if (!faceImage) return;
 
-            // Now submit the form
-            this.submit();
-        }
+        fetch("{{ route('face.login') }}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ face_image: faceImage })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = data.redirect;
+            } else {
+                alert(data.message || "Face not recognized.");
+            }
+        })
+        .catch(err => console.error("AJAX error:", err));
     });
-
-    // For the login page's AJAX request
-    document.getElementById('faceLoginButton').addEventListener('click', async function() {
-        const faceImage = await captureFace();
-        if (faceImage) {
-            // Send the image to the /face-login endpoint via AJAX
-            fetch("{{ route('face.login') }}", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: JSON.stringify({ face_image: faceImage })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    window.location.href = data.redirect;
-                } else {
-                    alert(data.message);
-                }
-            });
-        }
-    });
+});
 </script>
+@endsection

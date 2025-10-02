@@ -50,11 +50,15 @@ class ProductController extends Controller
 
 
     // Show all products
-public function index()
+public function home()
 {
-    $products = Product::all();
-    return view('products.index', compact('products'));
+    $products = [
+        ['id'=>1, 'name'=>'Milk', 'price'=>50],
+        ['id'=>2, 'name'=>'Cheese', 'price'=>200],
+    ];
+    return view('products', compact('products'));
 }
+
 
 // Show edit form
 public function edit($id)
