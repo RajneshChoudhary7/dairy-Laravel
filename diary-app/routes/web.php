@@ -30,12 +30,12 @@ Route::view('/welcome', 'welcome')->name('welcome');
 
 // --------------------- Product Pages ---------------------
 Route::prefix('products')->group(function () {
-Route::get('/', [ProductController::class, 'home'])->name('products.home');
+    Route::get('/', [ProductController::class, 'home'])->name('products.home');
     Route::get('/index', [ProductController::class, 'index'])->name('products.index');
     Route::get('/create', [ProductController::class, 'create'])->name('products.create');
     Route::post('/', [ProductController::class, 'store'])->name('products.store');
     Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::post('/{id}/update', [ProductController::class, 'update'])->name('products.update');
+    Route::put('/{id}', [ProductController::class, 'update'])->name('products.update'); // ✅ fixed
     Route::delete('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/grid', [ProductController::class, 'grid'])->name('products.grid');
 });
@@ -68,24 +68,13 @@ Route::middleware('guest')->group(function () {
 // --------------------- Protected Routes ---------------------
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    
-    // Main dashboard that redirects based on role
+
+    // Main dashboard route — role ke hisaab se redirect karega
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
-    // Role-specific dashboards
-    Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])
-    ->middleware('checkRole:admin')
-    ->name('admin.dashboard');
-    
-    Route::get('/staff/dashboard', [DashboardController::class, 'staffDashboard'])
-        ->middleware('checkRole:staff')
-        ->name('staff.dashboard');
-    
-    Route::get('/supplier/dashboard', [DashboardController::class, 'supplierDashboard'])
-        ->middleware('checkRole:supplier')
-        ->name('supplier.dashboard');
-    
-    Route::get('/user/dashboard', [DashboardController::class, 'userDashboard'])
-        ->middleware('checkRole:customer')
-        ->name('user.dashboard');
+
+    // Ab individual role dashboards ko middleware ki zarurat nahi
+    Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])->name('admin.dashboard');
+    Route::get('/staff/dashboard', [DashboardController::class, 'staffDashboard'])->name('staff.dashboard');
+    Route::get('/supplier/dashboard', [DashboardController::class, 'supplierDashboard'])->name('supplier.dashboard');
+    Route::get('/user/dashboard', [DashboardController::class, 'userDashboard'])->name('user.dashboard');
 });

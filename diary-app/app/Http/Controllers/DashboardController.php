@@ -20,25 +20,31 @@ class DashboardController extends Controller
     } else {
         return redirect('/login');
     }
+
+    
 }
 
-    public function adminDashboard()
-    {
-        return view('dashboard.admin');
-    }
+public function adminDashboard()
+{
+    $users = \App\Models\User::all();  // saare users
+    return view('dashboards.admin', compact('users'));
+}
 
-    public function staffDashboard()
-    {
-        return view('dashboard.staff');
-    }
+public function staffDashboard()
+{
+    $users = \App\Models\User::where('role', 'staff')->get();
+    return view('dashboards.staff', compact('users'));
+}
 
-    public function supplierDashboard()
-    {
-        return view('dashboard.supplier');
-    }
+public function userDashboard()
+{
+    $users = \App\Models\User::where('role', 'customer')->get();
+    return view('dashboards.user', compact('users'));
+}
 
-    public function userDashboard()
-    {
-        return view('dashboard.user');
-    }
+public function supplierDashboard()
+{
+    return view('dashboards.supplier');
+}
+
 }

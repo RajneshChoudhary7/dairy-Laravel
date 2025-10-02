@@ -47,7 +47,7 @@ class AuthController extends Controller
 
             Auth::login($user);
             
-            return redirect()->route($this->getDashboardRoute($user->role))
+            return redirect()->route("login")
                             ->with('success', 'Signup successful! Welcome.');
 
         } catch (\Exception $e) {

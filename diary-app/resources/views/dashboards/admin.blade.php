@@ -1,10 +1,36 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('title', 'Dashboard - Dairy Management')
+@section('title', 'Admin Dashboard')
 
 @section('content')
-<div class="container mt-5">
-    <h2>Welcome, {{ auth()->user()->name }} 🎉</h2>
-    <p>You are logged in successfully with role: <b>{{ auth()->user()->role }}</b></p>
-</div>
+<h2>Admin Dashboard</h2>
+
+<table class="table table-bordered mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($users as $index => $user)
+        <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>
+                @if($user->face_image)
+                    <img src="{{ asset('storage/' . $user->face_image) }}" alt="photo" width="50">
+                @else
+                    N/A
+                @endif
+            </td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+            <td>{{ ucfirst($user->role) }}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 @endsection

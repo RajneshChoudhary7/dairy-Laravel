@@ -8,12 +8,19 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     // Show form
+
+    public function index()
+    {
+        $products = Product::all();
+        return view('products.index', compact('products'));
+    }
+    // Store product
     public function create()
     {
         return view('products.create');
     }
 
-    // Store product
+    // Save new product
     public function store(Request $request)
     {
         $request->validate([
@@ -21,28 +28,29 @@ class ProductController extends Controller
             'category' => 'required',
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
-            'discount' => 'nullable|integer',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'discount' => 'nullable|numeric',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
         ]);
 
-        $imageName = null;
+        $product = new Product();
+        $product->name = $request->name;
+        $product->category = $request->category;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+        $product->discount = $request->discount;
+        $product->description = $request->description;
+
+        // image upload
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
+            $request->image->move(public_path('uploads/products'), $imageName);
+            $product->image = $imageName;
         }
 
-        Product::create([
-            'name' => $request->name,
-            'category' => $request->category,
-            'price' => $request->price,
-            'quantity' => $request->quantity,
-            'discount' => $request->discount ?? 0,
-            'description' => $request->description,
-            'image' => $imageName,
-        ]);
+        $product->save();
 
-        return redirect()->back()->with('success', 'Product added successfully!');
+        return redirect()->route('products.index')->with('success', 'Product added successfully!');
+            
     }
 
     //////////////
