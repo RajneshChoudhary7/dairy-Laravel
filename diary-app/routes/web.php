@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Kernel;
 use App\Http\Middleware\CheckRole;
 
@@ -38,18 +40,58 @@ Route::prefix('products')->group(function () {
     Route::put('/{id}', [ProductController::class, 'update'])->name('products.update'); // ✅ fixed
     Route::delete('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/grid', [ProductController::class, 'grid'])->name('products.grid');
+
+    // Product Details Page
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+// Optional: Add to Cart
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+
+// Optional: Buy Now
+Route::post('/checkout/buy-now/{id}', [CheckoutController::class, 'buyNow'])->name('checkout.buyNow');
+
+// Buy Now single product
+Route::post('/checkout/buy-now/{id}', [CheckoutController::class, 'buyNow'])->name('checkout.buyNow');
+
+// Cart Checkout page
+Route::get('/checkout', [CheckoutController::class, 'cartCheckout'])->name('checkout');
+
+// Place order
+Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+
+////// cartcontrller 
+
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+
+
+Route::post('/checkout/buy-now/{id}', [CheckoutController::class, 'buyNow'])->name('checkout.buyNow');
+Route::get('/checkout', [CheckoutController::class, 'cartCheckout'])->name('checkout');
+Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+
+// cart routes (ensure these exist)
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 });
 
-// Specific product categories
-Route::view('/milk', 'Milk')->name('Milk');
-Route::view('/dahi', 'Dahi')->name('Dahi');
-Route::view('/paneer', 'Paneer')->name('Paneer');
-Route::view('/butter', 'Butter')->name('Butter');
-Route::view('/ghee', 'Ghee')->name('Ghee');
-Route::view('/icecream', 'IceCream')->name('IceCream');
-Route::view('/lassi', 'Lassi')->name('Lassi');
 
-Route::view('/health-products', 'health-products')->name('HealthProducts');
+
+// Specific product categories
+Route::get('/milk', [ProductController::class, 'milk'])->name('Milk');
+Route::get('/dahi', [ProductController::class, 'dahi'])->name('Dahi');
+Route::get('/paneer', [ProductController::class, 'paneer'])->name('Paneer');
+Route::get('/butter', [ProductController::class, 'butter'])->name('Butter');
+Route::get('/ghee', [ProductController::class, 'ghee'])->name('Ghee');
+Route::get('/icecream', [ProductController::class, 'iceCream'])->name('IceCream');
+Route::get('/lassi', [ProductController::class, 'lassi'])->name('Lassi');
+Route::get('/healthproducts', [ProductController::class, 'healthProducts'])->name('HealthProducts');
+
+Route::post('/products/add-to-table/{name}', [ProductController::class, 'addToTable'])->name('products.addToTable');
+
+
+
 
 
 

@@ -13,6 +13,7 @@
     @endif
 
     <a href="{{ route('products.create') }}" class="btn btn-success mb-3">+ Add Product</a>
+    <a href="{{ route('products.grid') }}" class="btn btn-success mb-3">Show Products</a>
 
     <table class="table table-bordered">
         <thead class="table-dark">
@@ -42,7 +43,7 @@
                     <td>{{ $product->description }}</td>
                     <td>
                         @if($product->image)
-                            <img src="{{ asset('images/'.$product->image) }}" width="60">
+                            <img src="{{ asset('uploads/products/'.$product->image) }}" width="60">
                         @else
                             No Image
                         @endif

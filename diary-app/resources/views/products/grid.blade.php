@@ -4,13 +4,14 @@
 <div class="container">
     <h1 class="mb-4">Our Products</h1>
     <a href="{{ route('products.create') }}" class="btn btn-primary mb-4">+ Add Product</a>
+    <a href="{{ route('products.home') }}" class="btn btn-primary mb-4">Show All Product</a>
 
     <div class="row">
         @foreach($products as $product)
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
                 @if($product->image)
-                    <img src="{{ asset('storage/'.$product->image) }}" class="card-img-top" style="height:200px; object-fit:cover;">
+                    <img src="{{ asset('uploads/products/'.$product->image) }}" class="card-img-top" style="height:200px; object-fit:cover;">
                 @else
                     <img src="https://via.placeholder.com/200" class="card-img-top" style="height:200px; object-fit:cover;">
                 @endif
@@ -27,6 +28,7 @@
                     
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-warning">Buy now</a>
                         
                         <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                             @csrf @method('DELETE')

@@ -74,7 +74,7 @@
             <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
             <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
             <a href="{{ route('services') }}" class="nav-item nav-link">Services</a>
-            <a href="{{ route('products.index') }}" class="nav-item nav-link">Products</a>
+            <a href="{{ route('products.grid') }}" class="nav-item nav-link">Products</a>
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
