@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use App\Models\Task;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -30,11 +32,6 @@ public function adminDashboard()
     return view('dashboards.admin', compact('users'));
 }
 
-public function staffDashboard()
-{
-    $users = \App\Models\User::where('role', 'staff')->get();
-    return view('dashboards.staff', compact('users'));
-}
 
 public function userDashboard()
 {
@@ -46,5 +43,16 @@ public function supplierDashboard()
 {
     return view('dashboards.supplier');
 }
+
+public function staffDashboard()
+{
+    $staffId = Auth::user()->id;
+    $tasks = Task::where('staff_id', $staffId)
+                 ->whereDate('date', today())
+                 ->get();
+
+    return view('staff.dashboard', compact('tasks')); // ← this is where it looks for staff/dashboard.blade.php
+}
+
 
 }

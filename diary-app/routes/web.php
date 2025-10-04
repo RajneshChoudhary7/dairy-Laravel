@@ -6,6 +6,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\UserController;
 use App\Http\Kernel;
 use App\Http\Middleware\CheckRole;
 
@@ -111,12 +115,29 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    // Main dashboard route — role ke hisaab se redirect karega
+    // Main dashboard route — role ke hisaab se redirect
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Ab individual role dashboards ko middleware ki zarurat nahi
-    Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])->name('admin.dashboard');
-    Route::get('/staff/dashboard', [DashboardController::class, 'staffDashboard'])->name('staff.dashboard');
-    Route::get('/supplier/dashboard', [DashboardController::class, 'supplierDashboard'])->name('supplier.dashboard');
-    Route::get('/user/dashboard', [DashboardController::class, 'userDashboard'])->name('user.dashboard');
+    // Use new controllers instead of DashboardController
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/staff/dashboard', [StaffController::class, 'index'])->name('staff.dashboard');
+    Route::get('/supplier/dashboard', [SupplierController::class, 'index'])->name('supplier.dashboard');
+    Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+});
+
+
+
+////////////////////
+
+
+
+use App\Http\Controllers\TaskController;
+
+Route::prefix('tasks')->group(function () {
+    Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
+    Route::get('/create', [TaskController::class, 'create'])->name('tasks.create');
+    Route::post('/', [TaskController::class, 'store'])->name('tasks.store');
+    Route::get('/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+    Route::put('/{id}', [TaskController::class, 'update'])->name('tasks.update');
+    Route::delete('/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 });
